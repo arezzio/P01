@@ -1,27 +1,26 @@
-
 def convert_base(num, b_num, b_tar):
-# Convert input number to decimal
-decimal_num = int(num, b_num)
+    # Convert input number to decimal
+    decimal_num = int(num, b_num)
 
-# Handle zero case
-if decimal_num == 0:
-return '0'
+    # Handle zero case
+    if decimal_num == 0:
+        return '0'
 
-# Convert decimal to target base
-digits = []
-while decimal_num > 0:
-remainder = decimal_num % b_tar
-digit = str(remainder) if remainder < 10 else chr(remainder - 10 + ord('A'))
-digits.append(digit)
-decimal_num //= b_tar
+    # Convert decimal to target base
+    digits = []
+    while decimal_num > 0:
+        remainder = decimal_num % b_tar
+        digit = str(remainder) if remainder < 10 else chr(remainder - 10 + ord('A'))
+        digits.append(digit)
+        decimal_num //= b_tar
 
-return ''.join(reversed(digits))
+    return ''.join(reversed(digits))
 
-# user interface
+# User interface
 if __name__ == "__main__":
-num = input("Enter the number: ")
-b_num = int(input("Enter the base of the number (2-16): "))
-b_tar = int(input("Enter the target base (2-16): "))
+    num = input("Enter the number: ")
+    b_num = int(input("Enter the base of the number (2-16): "))
+    b_tar = int(input("Enter the target base (2-16): "))
 
-result = convert_base(num, b_num, b_tar)
-print(f"Converted number: {result}")
+    result = convert_base(num, b_num, b_tar)
+    print(f"Converted number: {result}")
